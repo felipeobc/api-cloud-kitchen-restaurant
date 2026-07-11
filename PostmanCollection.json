@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+		"name": "Cloud Kitchen Restaurant API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_collection_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+	},
+	"item": [
+		{
+			"name": "UserType Management",
+			"item": [
+				{
+					"name": "Create UserType (Restaurant Owner)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dono de Restaurante\",\n    \"phone\": \"11987654321\",\n    \"email\": \"restaurante@example.com\",\n    \"owner\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user-types",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create UserType (Client)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Cliente\",\n    \"phone\": \"11912345678\",\n    \"email\": \"cliente@example.com\",\n    \"owner\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user-types",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All UserTypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user-types",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get UserType by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user-types/{{userTypeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user-types",
+								"{{userTypeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update UserType",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dono de Restaurante Atualizado\",\n    \"phone\": \"11999998888\",\n    \"email\": \"restaurante.atualizado@example.com\",\n    \"owner\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user-types/{{userTypeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user-types",
+								"{{userTypeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserType",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user-types/{{userTypeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user-types",
+								"{{userTypeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "userTypeId",
+			"value": "",
+			"type": "string",
+			"description": "ID of a created UserType. Populate after creating a UserType."
+		}
+	]
+}
