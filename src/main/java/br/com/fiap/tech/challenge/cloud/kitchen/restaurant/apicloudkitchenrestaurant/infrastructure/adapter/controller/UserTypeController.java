@@ -61,6 +61,7 @@ public class UserTypeController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUserType(@PathVariable Long id) {
+        userTypeManagementUseCase.deleteUserType(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
