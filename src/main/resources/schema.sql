@@ -15,3 +15,14 @@ CREATE TABLE IF NOT EXISTS restaurants (
     owner_id BIGINT,
     FOREIGN KEY (owner_id) REFERENCES user_types(id)
 );
+
+CREATE TABLE IF NOT EXISTS menu_items (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    description VARCHAR(500),
+    price DOUBLE,
+    only_in_restaurant BOOLEAN,
+    photo_path VARCHAR(500),
+    restaurant_id BIGINT,
+    FOREIGN KEY (restaurant_id) REFERENCES restaurants(id)
+);

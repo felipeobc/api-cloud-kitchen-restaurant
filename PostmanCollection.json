@@ -154,19 +154,32 @@
 					},
 					"response": []
 				},
-				{
-					"name": "Get Restaurant by ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/restaurants/{{restaurantId}}",
-							"host": ["{{baseUrl}}"],
-							"path": ["restaurants", "{{restaurantId}}"]
-						}
-					},
-					"response": []
-				},
+ 			{
+ 				"name": "Get Restaurant by ID",
+ 				"request": {
+ 					"method": "GET",
+ 					"header": [],
+ 					"url": {
+ 						"raw": "{{baseUrl}}/restaurants/{{restaurantId}}",
+ 						"host": ["{{baseUrl}}"],
+ 						"path": ["restaurants", "{{restaurantId}}"]
+ 					}
+ 				},
+ 				"response": []
+ 			},
+ 			{
+ 				"name": "Get Restaurant with Menu",
+ 				"request": {
+ 					"method": "GET",
+ 					"header": [],
+ 					"url": {
+ 						"raw": "{{baseUrl}}/restaurants/{{restaurantId}}/with-menu",
+ 						"host": ["{{baseUrl}}"],
+ 						"path": ["restaurants", "{{restaurantId}}", "with-menu"]
+ 					}
+ 				},
+ 				"response": []
+ 			},
 				{
 					"name": "Update Restaurant",
 					"request": {
@@ -203,6 +216,94 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Menu Item Management",
+			"item": [
+				{
+					"name": "Create Menu Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Spaghetti Carbonara\",\n    \"description\": \"Massa italiana com ovos, queijo pecorino e pancetta\",\n    \"price\": 45.90,\n    \"onlyInRestaurant\": false,\n    \"photoPath\": \"/photos/spaghetti-carbonara.jpg\",\n    \"restaurantId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/menu-items",
+							"host": ["{{baseUrl}}"],
+							"path": ["menu-items"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Menu Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/menu-items",
+							"host": ["{{baseUrl}}"],
+							"path": ["menu-items"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Menu Item by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/menu-items/{{menuItemId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["menu-items", "{{menuItemId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Menu Item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Spaghetti Carbonara Especial\",\n    \"description\": \"Massa italiana com ovos, queijo pecorino, pancetta e trufas\",\n    \"price\": 59.90,\n    \"onlyInRestaurant\": true,\n    \"photoPath\": \"/photos/spaghetti-carbonara-especial.jpg\",\n    \"restaurantId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/menu-items/{{menuItemId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["menu-items", "{{menuItemId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Menu Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/menu-items/{{menuItemId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["menu-items", "{{menuItemId}}"]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"variable": [
@@ -222,6 +323,12 @@
 			"value": "1",
 			"type": "string",
 			"description": "ID numérico (Long) de um Restaurante criado."
+		},
+		{
+			"key": "menuItemId",
+			"value": "1",
+			"type": "string",
+			"description": "ID numérico (Long) de um item do cardápio."
 		}
 	]
 }
