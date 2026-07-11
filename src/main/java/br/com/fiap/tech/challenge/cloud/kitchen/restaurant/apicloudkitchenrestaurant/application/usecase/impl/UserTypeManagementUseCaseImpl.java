@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class UserTypeManagementUseCaseImpl implements UserTypeManagementUseCase {
@@ -24,7 +23,7 @@ public class UserTypeManagementUseCaseImpl implements UserTypeManagementUseCase 
     }
 
     @Override
-    public Optional<UserType> getUserTypeById(UUID id) {
+    public Optional<UserType> getUserTypeById(Long id) {
         return userTypeRepository.findById(id);
     }
 
@@ -34,7 +33,7 @@ public class UserTypeManagementUseCaseImpl implements UserTypeManagementUseCase 
     }
 
     @Override
-    public UserType updateUserType(UUID id, UserType userType) {
+    public UserType updateUserType(Long id, UserType userType) {
         return userTypeRepository.findById(id)
                 .map(existingUserType -> {
                     existingUserType.setName(userType.getName());
@@ -47,7 +46,7 @@ public class UserTypeManagementUseCaseImpl implements UserTypeManagementUseCase 
     }
 
     @Override
-    public void deleteUserType(UUID id) {
+    public void deleteUserType(Long id) {
         userTypeRepository.deleteById(id);
     }
 }

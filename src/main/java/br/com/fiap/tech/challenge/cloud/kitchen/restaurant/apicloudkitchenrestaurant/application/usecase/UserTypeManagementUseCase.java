@@ -4,12 +4,11 @@ import br.com.fiap.tech.challenge.cloud.kitchen.restaurant.apicloudkitchenrestau
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface UserTypeManagementUseCase {
     UserType createUserType(UserType userType);
-    Optional<UserType> getUserTypeById(UUID id);
+    Optional<UserType> getUserTypeById(Long id);
     List<UserType> getAllUserTypes();
-    UserType updateUserType(UUID id, UserType userType);
-    void deleteUserType(UUID id);
+    UserType updateUserType(Long id, UserType userType);
+    void deleteUserType(Long id);
 }

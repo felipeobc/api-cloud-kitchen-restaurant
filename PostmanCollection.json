@@ -152,9 +152,9 @@
 		},
 		{
 			"key": "userTypeId",
-			"value": "",
+			"value": "1",
 			"type": "string",
-			"description": "ID of a created UserType. Populate after creating a UserType."
+			"description": "ID numérico (Long) de um UserType criado. Popule após criar um UserType ou use um dos IDs do data.sql (ex: 1, 2, 3...)."
 		}
 	]
 }

@@ -3,8 +3,6 @@ package br.com.fiap.tech.challenge.cloud.kitchen.restaurant.apicloudkitchenresta
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
-
 @Repository
-public interface UserTypeJpaRepository extends JpaRepository<UserTypeEntity, UUID> {
+public interface UserTypeJpaRepository extends JpaRepository<UserTypeEntity, Long> { // Changed UUID to Long
 }

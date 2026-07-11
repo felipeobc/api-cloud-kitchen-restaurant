@@ -4,11 +4,10 @@ import br.com.fiap.tech.challenge.cloud.kitchen.restaurant.apicloudkitchenrestau
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface UserTypeRepository {
     UserType save(UserType userType);
-    Optional<UserType> findById(UUID id);
+    Optional<UserType> findById(Long id);
     List<UserType> findAll();
-    void deleteById(UUID id);
+    void deleteById(Long id);
 }

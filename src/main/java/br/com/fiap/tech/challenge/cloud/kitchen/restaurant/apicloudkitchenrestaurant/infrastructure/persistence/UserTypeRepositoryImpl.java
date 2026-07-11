@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
@@ -26,7 +25,7 @@ public class UserTypeRepositoryImpl implements UserTypeRepository {
     }
 
     @Override
-    public Optional<UserType> findById(UUID id) {
+    public Optional<UserType> findById(Long id) { // Changed UUID to Long
         return userTypeJpaRepository.findById(id).map(this::toDomain);
     }
 
@@ -38,17 +37,14 @@ public class UserTypeRepositoryImpl implements UserTypeRepository {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(Long id) { // Changed UUID to Long
         userTypeJpaRepository.deleteById(id);
     }
 
     private UserTypeEntity toEntity(UserType userType) {
-        UserTypeEntity entity = new UserTypeEntity();
-        entity.setName(userType.getName());
-        entity.setPhone(userType.getPhone());
-        entity.setEmail(userType.getEmail());
-        entity.setOwner(userType.getOwner());
-        return entity;
+        // When saving, if userType.getId() is null, it's a new entity, and the DB will generate the ID.
+        // If userType.getId() is not null, it's an update.
+        return new UserTypeEntity(userType.getId(), userType.getName(), userType.getPhone(), userType.getEmail(), userType.getOwner());
     }
 
     private UserType toDomain(UserTypeEntity userTypeEntity) {

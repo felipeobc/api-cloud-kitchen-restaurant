@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -31,7 +30,7 @@ public class UserTypeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserTypeResponse> getUserTypeById(@PathVariable UUID id) {
+    public ResponseEntity<UserTypeResponse> getUserTypeById(@PathVariable Long id) { // Changed UUID to Long
         return userTypeManagementUseCase.getUserTypeById(id)
                 .map(this::toResponse)
                 .map(response -> new ResponseEntity<>(response, HttpStatus.OK))
@@ -47,14 +46,14 @@ public class UserTypeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserTypeResponse> updateUserType(@PathVariable UUID id, @Valid @RequestBody UserTypeRequest request) {
+    public ResponseEntity<UserTypeResponse> updateUserType(@PathVariable Long id, @Valid @RequestBody UserTypeRequest request) { // Changed UUID to Long
         UserType userType = new UserType(id, request.getName(), request.getPhone(), request.getEmail(), request.getOwner());
         UserType updatedUserType = userTypeManagementUseCase.updateUserType(id, userType);
         return new ResponseEntity<>(toResponse(updatedUserType), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUserType(@PathVariable UUID id) {
+    public ResponseEntity<Void> deleteUserType(@PathVariable Long id) { // Changed UUID to Long
         userTypeManagementUseCase.deleteUserType(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
