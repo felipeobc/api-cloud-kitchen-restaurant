@@ -25,12 +25,8 @@
 						},
 						"url": {
 							"raw": "{{baseUrl}}/user-types",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"user-types"
-							]
+							"host": ["{{baseUrl}}"],
+							"path": ["user-types"]
 						}
 					},
 					"response": []
@@ -51,12 +47,8 @@
 						},
 						"url": {
 							"raw": "{{baseUrl}}/user-types",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"user-types"
-							]
+							"host": ["{{baseUrl}}"],
+							"path": ["user-types"]
 						}
 					},
 					"response": []
@@ -68,12 +60,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{baseUrl}}/user-types",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"user-types"
-							]
+							"host": ["{{baseUrl}}"],
+							"path": ["user-types"]
 						}
 					},
 					"response": []
@@ -85,13 +73,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{baseUrl}}/user-types/{{userTypeId}}",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"user-types",
-								"{{userTypeId}}"
-							]
+							"host": ["{{baseUrl}}"],
+							"path": ["user-types", "{{userTypeId}}"]
 						}
 					},
 					"response": []
@@ -112,13 +95,8 @@
 						},
 						"url": {
 							"raw": "{{baseUrl}}/user-types/{{userTypeId}}",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"user-types",
-								"{{userTypeId}}"
-							]
+							"host": ["{{baseUrl}}"],
+							"path": ["user-types", "{{userTypeId}}"]
 						}
 					},
 					"response": []
@@ -130,13 +108,96 @@
 						"header": [],
 						"url": {
 							"raw": "{{baseUrl}}/user-types/{{userTypeId}}",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"user-types",
-								"{{userTypeId}}"
-							]
+							"host": ["{{baseUrl}}"],
+							"path": ["user-types", "{{userTypeId}}"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restaurant Management",
+			"item": [
+				{
+					"name": "Create Restaurant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Restaurante do Fernando\",\n    \"address\": \"Rua das Flores, 123 - São Paulo, SP\",\n    \"cuisineType\": \"Italiana\",\n    \"openingHours\": \"Seg-Sex 11:00-23:00, Sab-Dom 11:00-00:00\",\n    \"ownerId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants",
+							"host": ["{{baseUrl}}"],
+							"path": ["restaurants"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants",
+							"host": ["{{baseUrl}}"],
+							"path": ["restaurants"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Restaurant by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurantId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["restaurants", "{{restaurantId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Restaurant",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Restaurante do Fernando Atualizado\",\n    \"address\": \"Av. Paulista, 1000 - São Paulo, SP\",\n    \"cuisineType\": \"Brasileira\",\n    \"openingHours\": \"Seg-Dom 10:00-22:00\",\n    \"ownerId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurantId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["restaurants", "{{restaurantId}}"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Restaurant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/{{restaurantId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["restaurants", "{{restaurantId}}"]
 						}
 					},
 					"response": []
@@ -154,7 +215,13 @@
 			"key": "userTypeId",
 			"value": "1",
 			"type": "string",
-			"description": "ID numérico (Long) de um UserType criado. Popule após criar um UserType ou use um dos IDs do data.sql (ex: 1, 2, 3...)."
+			"description": "ID numérico (Long) de um UserType. Use um dos IDs do data.sql (ex: 1, 2, 3...)."
+		},
+		{
+			"key": "restaurantId",
+			"value": "1",
+			"type": "string",
+			"description": "ID numérico (Long) de um Restaurante criado."
 		}
 	]
 }
