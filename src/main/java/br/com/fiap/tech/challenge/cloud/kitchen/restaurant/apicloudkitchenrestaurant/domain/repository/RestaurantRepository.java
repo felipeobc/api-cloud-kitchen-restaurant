@@ -9,5 +9,6 @@ public interface RestaurantRepository {
     Restaurant save(Restaurant restaurant);
     Optional<Restaurant> findById(Long id);
     List<Restaurant> findAll();
+    List<Restaurant> findByOwnerId(Long ownerId);
     void deleteById(Long id);
 }

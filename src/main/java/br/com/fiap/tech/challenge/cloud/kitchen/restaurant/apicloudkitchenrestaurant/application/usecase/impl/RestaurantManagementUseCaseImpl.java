@@ -33,6 +33,11 @@ public class RestaurantManagementUseCaseImpl implements RestaurantManagementUseC
     }
 
     @Override
+    public List<Restaurant> getRestaurantsByOwnerId(Long ownerId) {
+        return restaurantRepository.findByOwnerId(ownerId);
+    }
+
+    @Override
     public Restaurant updateRestaurant(Long id, Restaurant restaurant) {
         return restaurantRepository.save(restaurant);
     }

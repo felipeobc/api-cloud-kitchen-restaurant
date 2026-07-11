@@ -9,6 +9,7 @@ public interface RestaurantManagementUseCase {
     Restaurant createRestaurant(Restaurant restaurant);
     Optional<Restaurant> getRestaurantById(Long id);
     List<Restaurant> getAllRestaurants();
+    List<Restaurant> getRestaurantsByOwnerId(Long ownerId);
     Restaurant updateRestaurant(Long id, Restaurant restaurant);
     void deleteRestaurant(Long id);
 }

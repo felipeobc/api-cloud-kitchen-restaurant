@@ -66,19 +66,32 @@
 					},
 					"response": []
 				},
-				{
-					"name": "Get UserType by ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/user-types/{{userTypeId}}",
-							"host": ["{{baseUrl}}"],
-							"path": ["user-types", "{{userTypeId}}"]
-						}
-					},
-					"response": []
-				},
+ 			{
+ 				"name": "Get UserType by ID",
+ 				"request": {
+ 					"method": "GET",
+ 					"header": [],
+ 					"url": {
+ 						"raw": "{{baseUrl}}/user-types/{{userTypeId}}",
+ 						"host": ["{{baseUrl}}"],
+ 						"path": ["user-types", "{{userTypeId}}"]
+ 					}
+ 				},
+ 				"response": []
+ 			},
+ 			{
+ 				"name": "Get UserType with Restaurants",
+ 				"request": {
+ 					"method": "GET",
+ 					"header": [],
+ 					"url": {
+ 						"raw": "{{baseUrl}}/user-types/{{userTypeId}}/with-restaurants",
+ 						"host": ["{{baseUrl}}"],
+ 						"path": ["user-types", "{{userTypeId}}", "with-restaurants"]
+ 					}
+ 				},
+ 				"response": []
+ 			},
 				{
 					"name": "Update UserType",
 					"request": {

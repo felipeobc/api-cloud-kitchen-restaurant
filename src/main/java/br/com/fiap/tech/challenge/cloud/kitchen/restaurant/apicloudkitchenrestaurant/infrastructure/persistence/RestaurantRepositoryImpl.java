@@ -42,6 +42,13 @@ public class RestaurantRepositoryImpl implements RestaurantRepository {
     }
 
     @Override
+    public List<Restaurant> findByOwnerId(Long ownerId) {
+        return restaurantJpaRepository.findByOwnerId(ownerId).stream()
+                .map(this::toDomain)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public void deleteById(Long id) {
         restaurantJpaRepository.deleteById(id);
     }
