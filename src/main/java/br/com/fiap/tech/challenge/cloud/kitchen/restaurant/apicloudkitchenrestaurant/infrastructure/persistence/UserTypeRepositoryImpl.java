@@ -43,7 +43,12 @@ public class UserTypeRepositoryImpl implements UserTypeRepository {
     }
 
     private UserTypeEntity toEntity(UserType userType) {
-        return new UserTypeEntity(userType.getId(), userType.getName(), userType.getPhone(), userType.getEmail(), userType.getOwner());
+        UserTypeEntity entity = new UserTypeEntity();
+        entity.setName(userType.getName());
+        entity.setPhone(userType.getPhone());
+        entity.setEmail(userType.getEmail());
+        entity.setOwner(userType.getOwner());
+        return entity;
     }
 
     private UserType toDomain(UserTypeEntity userTypeEntity) {

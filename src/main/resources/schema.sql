@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS user_types (
+    id UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
+    name VARCHAR(255),
+    phone VARCHAR(50),
+    email VARCHAR(255),
+    owner BOOLEAN
+);
