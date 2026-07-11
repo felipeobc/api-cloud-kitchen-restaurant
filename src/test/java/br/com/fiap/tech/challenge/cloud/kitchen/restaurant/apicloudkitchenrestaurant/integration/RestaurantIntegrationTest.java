@@ -8,8 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.jayway.jsonpath.JsonPath;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -72,7 +70,6 @@ class RestaurantIntegrationTest {
 
     @Test
     void deleteRestaurant_shouldReturn204() throws Exception {
-        // Create a new restaurant without menu items and delete it
         String body = "{\"name\":\"Temp\",\"address\":\"Rua X\",\"cuisineType\":\"Italiana\",\"openingHours\":\"Seg-Sex\",\"ownerId\":1}";
         String response = mockMvc.perform(post("/restaurants")
                         .contentType(MediaType.APPLICATION_JSON)
