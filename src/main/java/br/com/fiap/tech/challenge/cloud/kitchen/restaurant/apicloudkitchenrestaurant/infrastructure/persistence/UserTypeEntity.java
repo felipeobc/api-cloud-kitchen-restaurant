@@ -1,13 +1,17 @@
 package br.com.fiap.tech.challenge.cloud.kitchen.restaurant.apicloudkitchenrestaurant.infrastructure.persistence;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "user_types")
 public class UserTypeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Changed to IDENTITY for Long IDs
-    private Long id; // Changed type from UUID to Long
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String phone;
     private String email;
@@ -24,43 +28,4 @@ public class UserTypeEntity {
         this.owner = owner;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Boolean getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Boolean owner) {
-        this.owner = owner;
-    }
 }

@@ -42,8 +42,6 @@ public class UserTypeRepositoryImpl implements UserTypeRepository {
     }
 
     private UserTypeEntity toEntity(UserType userType) {
-        // When saving, if userType.getId() is null, it's a new entity, and the DB will generate the ID.
-        // If userType.getId() is not null, it's an update.
         return new UserTypeEntity(userType.getId(), userType.getName(), userType.getPhone(), userType.getEmail(), userType.getOwner());
     }
 

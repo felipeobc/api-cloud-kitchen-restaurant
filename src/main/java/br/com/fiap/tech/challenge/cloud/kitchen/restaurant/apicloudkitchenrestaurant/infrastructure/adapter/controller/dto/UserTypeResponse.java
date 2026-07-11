@@ -1,7 +1,12 @@
 package br.com.fiap.tech.challenge.cloud.kitchen.restaurant.apicloudkitchenrestaurant.infrastructure.adapter.controller.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class UserTypeResponse {
-    private Long id; // Changed type from UUID to Long
+    private Long id;
     private String name;
     private String phone;
     private String email;
@@ -15,43 +20,4 @@ public class UserTypeResponse {
         this.owner = owner;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Boolean getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Boolean owner) {
-        this.owner = owner;
-    }
 }
