@@ -22,15 +22,4 @@ public class RestaurantEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private UserTypeEntity owner;
-
-    public RestaurantEntity() {
-    }
-
-    public RestaurantEntity(String name, String address, String cuisineType, String openingHours, UserTypeEntity owner) {
-        this.name = name;
-        this.address = address;
-        this.cuisineType = cuisineType;
-        this.openingHours = openingHours;
-        this.owner = owner;
-    }
 }
